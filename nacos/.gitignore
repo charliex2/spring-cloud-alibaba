@@ -2,3 +2,4 @@
 /logs
 /target/nacos-server.jar
 /bin/logs
+/bin/*.log

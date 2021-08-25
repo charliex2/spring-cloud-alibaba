@@ -17,6 +17,7 @@ spring:
           order: 1 # 排序，路由的优先级，数字越小，代表路由优先级越高
           predicates: # 断言，条件判断，返回值是 bool，即转发请求要符合的条件
             - Path=/srv-orders/**
+            - Age=16,80
           filters: # 在请求传递过程中，对请求做一些处理
             - StripPrefix=1 # 在请求转发之前去掉一层路径
 
