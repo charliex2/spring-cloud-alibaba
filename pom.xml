@@ -14,6 +14,7 @@
         <module>service-product</module>
         <module>service-order</module>
         <module>service-gateway</module>
+        <module>service-geo</module>
     </modules>
 
     <!--    父工程   -->
