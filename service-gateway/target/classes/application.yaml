@@ -12,12 +12,12 @@ spring:
         locator:
           enabled: true # 开启 gateway 从 nacos 获取服务信息
       routes: # 路由数组
-        - id: order_route_ # 当前路由转发的标识，要求唯一，默认 uuid
+        - id: order_route # 当前路由转发的标识，要求唯一，默认 uuid
           uri: lb://cn.chingshen.service-order # 请求最终要被转发的地址。lb: 至 loadbalance
           order: 1 # 排序，路由的优先级，数字越小，代表路由优先级越高
           predicates: # 断言，条件判断，返回值是 bool，即转发请求要符合的条件
             - Path=/srv-orders/**
-#            - Age=16,80
+          #            - Age=16,80
           filters: # 在请求传递过程中，对请求做一些处理
             - StripPrefix=1 # 在请求转发之前去掉一层路径
             - SetLog=true,true
