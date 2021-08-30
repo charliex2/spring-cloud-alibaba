@@ -30,3 +30,9 @@ spring:
             groupId: DEFAULT_GROUP
             data-type: json
             rule-type: flow
+  zipkin:
+    base-url: http://127.0.0.1:9411
+    discovery-client-enabled: false
+  sleuth:
+    sampler:
+      probability: 1.0
