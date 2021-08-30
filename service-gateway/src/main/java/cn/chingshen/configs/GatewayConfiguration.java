@@ -1,5 +1,9 @@
 package cn.chingshen.configs;
 
+import com.alibaba.csp.sentinel.adapter.gateway.common.api.ApiDefinition;
+import com.alibaba.csp.sentinel.adapter.gateway.common.api.ApiPathPredicateItem;
+import com.alibaba.csp.sentinel.adapter.gateway.common.api.ApiPredicateItem;
+import com.alibaba.csp.sentinel.adapter.gateway.common.api.GatewayApiDefinitionManager;
 import com.alibaba.csp.sentinel.adapter.gateway.common.rule.GatewayFlowRule;
 import com.alibaba.csp.sentinel.adapter.gateway.common.rule.GatewayRuleManager;
 import com.alibaba.csp.sentinel.adapter.gateway.sc.SentinelGatewayFilter;
@@ -84,5 +88,20 @@ public class GatewayConfiguration {
         GatewayCallbackManager.setBlockHandler(blockRequestHandler);
     }
 
+
+    @PostConstruct
+    public void initApiDefinitions() {
+        Set<ApiDefinition> definitions = new HashSet<>();
+
+        definitions.add(new ApiDefinition().setPredicateItems(new HashSet<ApiPredicateItem>() {
+            {
+                add(new ApiPathPredicateItem().setPattern("/srv-orders/orders/**"));
+            }
+        }));
+
+        // add more ApiDefinition
+
+        GatewayApiDefinitionManager.loadApiDefinitions(definitions);
+    }
 
 }

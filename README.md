@@ -25,3 +25,10 @@ java -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject
 ```shell
 账号: sentinel / 密码: sentinel
 ```
+
+### 启动 zipkin
+```shell
+cd zipkin
+#java -jar zipkin.jar
+java -jar zipkin.jar --STORAGE_TYPE=mysql --MYSQL_HOST=127.0.01 --MYSQL_TCP_PORT=3306 --MYSQL_DB=zipkin --MYSQL_USER=root --MYSQL_PASS=ROOT
+```

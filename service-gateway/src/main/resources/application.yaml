@@ -2,7 +2,7 @@ server:
   port: 7000
 spring:
   application:
-    name: cn.chingshen.service-gateway
+    name: service-gateway
   cloud:
     nacos:
       discovery:
@@ -13,7 +13,7 @@ spring:
           enabled: true # 开启 gateway 从 nacos 获取服务信息
       routes: # 路由数组
         - id: order_route # 当前路由转发的标识，要求唯一，默认 uuid
-          uri: lb://cn.chingshen.service-order # 请求最终要被转发的地址。lb: 至 loadbalance
+          uri: lb://service-order # 请求最终要被转发的地址。lb: 至 loadbalance
           order: 1 # 排序，路由的优先级，数字越小，代表路由优先级越高
           predicates: # 断言，条件判断，返回值是 bool，即转发请求要符合的条件
             - Path=/srv-orders/**

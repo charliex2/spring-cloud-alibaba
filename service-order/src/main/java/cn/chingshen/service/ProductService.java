@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @author charlie
  */
-@FeignClient(value = "cn.chingshen.service-product",
+@FeignClient(value = "service-product",
 //        fallback = ProductServiceFallback.class,
         fallbackFactory = ProductServiceFallback.class
 )
